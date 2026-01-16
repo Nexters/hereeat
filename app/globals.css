@@ -3,6 +3,7 @@
 @import "../src/styles/font.css";
 @import "../src/styles/typography.css";
 @import "../src/styles/color.css";
+@import "../src/styles/radius.css";
 
 @base {
   body {
