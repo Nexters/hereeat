@@ -29,17 +29,14 @@ const chipVariants = cva(
   },
 );
 
-export interface ChipProps
-  extends
-    ComponentPropsWithoutRef<"button">,
-    VariantProps<typeof chipVariants> {
-  selected?: boolean;
-}
+export type ChipProps = ComponentPropsWithoutRef<"button"> &
+  VariantProps<typeof chipVariants>;
 
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
   ({ selected, children, disabled, ...props }, ref) => (
     <button
       ref={ref}
+      aria-pressed={selected ?? false}
       disabled={disabled}
       className={chipVariants({ selected })}
       {...props}
