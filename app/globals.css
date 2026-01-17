@@ -5,6 +5,7 @@
 @import "../src/styles/color.css";
 @import "../src/styles/radius.css";
 @import "../src/styles/layout.css";
+@import "../src/styles/dimension.css";
 
 @base {
   body {
