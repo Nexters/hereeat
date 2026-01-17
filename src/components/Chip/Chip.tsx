@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { type ComponentPropsWithoutRef, forwardRef } from "react";
+import { type ComponentProps } from "react";
 
 const chipVariants = cva(
   [
@@ -7,6 +7,7 @@ const chipVariants = cva(
     "ygi:px-md ygi:py-xs",
     "ygi:rounded-xl ygi:transition-colors",
     "ygi:body-16-bd ygi:text-center ygi:whitespace-nowrap",
+    "ygi:cursor-pointer ygi:disabled:cursor-not-allowed",
   ],
   {
     variants: {
@@ -29,13 +30,17 @@ const chipVariants = cva(
   },
 );
 
-export type ChipProps = ComponentPropsWithoutRef<"button"> &
+export type ChipProps = ComponentProps<"button"> &
   VariantProps<typeof chipVariants>;
 
-export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
-  ({ selected, children, disabled, ...props }, ref) => (
+export const Chip = ({
+  selected,
+  children,
+  disabled,
+  ...props
+}: ChipProps) => {
+  return (
     <button
-      ref={ref}
       aria-pressed={selected ?? false}
       disabled={disabled}
       className={chipVariants({ selected })}
@@ -43,7 +48,5 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
     >
       {children}
     </button>
-  ),
-);
-
-Chip.displayName = "Chip";
+  );
+};
