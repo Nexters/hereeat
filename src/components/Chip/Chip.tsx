@@ -8,7 +8,7 @@ const chipVariants = cva(
 		'ygi:inline-flex ygi:items-center ygi:justify-center',
 		'ygi:text-center ygi:whitespace-nowrap',
 		'ygi:rounded-xl ygi:px-xl ygi:py-sm',
-		'ygi:transition-colors ygi:disabled:cursor-not-allowed',
+		'ygi:cursor-pointer ygi:transition-colors ygi:disabled:cursor-not-allowed',
 	],
 	{
 		variants: {
