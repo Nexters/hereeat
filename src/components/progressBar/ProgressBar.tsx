@@ -1,6 +1,7 @@
 import { cva } from "class-variance-authority";
 import type { ComponentProps } from "react";
 import { twJoin } from "tailwind-merge";
+import { HeartIcon } from "#/components/heartIcon";
 
 const containerVariants = cva([
 	"ygi:relative ygi:w-full ygi:h-[12px]",
@@ -20,6 +21,7 @@ const indicatorVariants = cva([
 	"ygi:bg-palette-primary-500 ygi:rounded-full",
 	"ygi:transition-all ygi:duration-300 ygi:ease-in-out",
 	"ygi:shadow-md",
+	"ygi:flex ygi:items-center ygi:justify-center",
 ]);
 
 export interface ProgressBarProps extends ComponentProps<"div"> {
@@ -55,7 +57,9 @@ export const ProgressBar = ({
 					style={{
 						left: `calc(${clampedValue}% - 14px)`, // Center on progress end
 					}}
-				/>
+				>
+					<HeartIcon size={16} color="white" />
+				</div>
 			)}
 		</div>
 	);
