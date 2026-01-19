@@ -9,9 +9,6 @@ const containerClasses =
 const fillClasses =
 	'ygi:absolute ygi:top-0 ygi:left-0 ygi:h-full ygi:rounded-sm ygi:bg-palette-primary-500';
 
-const indicatorClasses =
-	'ygi:absolute ygi:top-1/2 ygi:-translate-y-1/2 ygi:h-[28px] ygi:w-[28px] ygi:rounded-full ygi:bg-palette-primary-200 ygi:flex ygi:items-center ygi:justify-center ygi:border ygi:border-palette-common-white';
-
 export interface ProgressBarProps extends ComponentProps<'div'> {
 	value: number; // 0-100
 }
@@ -47,7 +44,7 @@ export const ProgressBar = ({
 				{isValue && (
 					<motion.div
 						key="indicator"
-						className={indicatorClasses}
+						className="ygi:absolute ygi:top-1/2 ygi:-translate-y-1/2 ygi:h-[28px] ygi:w-[28px] ygi:rounded-full ygi:bg-palette-primary-200 ygi:flex ygi:items-center ygi:justify-center ygi:border ygi:border-palette-common-white"
 						initial={{ opacity: 0, scale: 0.5, left: '-14px' }}
 						animate={{
 							opacity: 1,
