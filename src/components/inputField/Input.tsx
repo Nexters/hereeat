@@ -1,9 +1,11 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import {
+	type ChangeEvent,
 	type ComponentProps,
 	type MouseEvent,
 	type ReactNode,
 	useRef,
+	useState,
 } from 'react';
 import { twJoin } from 'tailwind-merge';
 
@@ -101,10 +103,26 @@ export const Input = ({
 	disabled = false,
 	className,
 	ref,
+	value,
+	defaultValue,
+	onChange,
 	...props
 }: InputProps) => {
 	const internalRef = useRef<HTMLInputElement>(null);
 	const inputRef = (ref as React.RefObject<HTMLInputElement>) ?? internalRef;
+
+	const isControlled = value !== undefined;
+	const [internalValue, setInternalValue] = useState(defaultValue ?? '');
+
+	const currentValue = isControlled ? value : internalValue;
+	const hasValue = String(currentValue).length > 0;
+
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+		if (!isControlled) {
+			setInternalValue(e.target.value);
+		}
+		onChange?.(e);
+	};
 
 	const handleContainerClick = () => {
 		inputRef.current?.focus();
@@ -112,6 +130,10 @@ export const Input = ({
 
 	const handleClear = (e: MouseEvent<HTMLButtonElement>) => {
 		e.stopPropagation();
+
+		if (!isControlled) {
+			setInternalValue('');
+		}
 
 		if (inputRef.current) {
 			const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
@@ -128,6 +150,8 @@ export const Input = ({
 		onClear?.();
 		inputRef.current?.focus();
 	};
+
+	const shouldShowClearButton = showClearButton && hasValue && !disabled;
 
 	return (
 		<div
@@ -148,10 +172,13 @@ export const Input = ({
 				disabled={disabled ?? false}
 				aria-invalid={isError ?? false}
 				className={inputVariants()}
+				value={isControlled ? value : undefined}
+				defaultValue={isControlled ? undefined : defaultValue}
+				onChange={handleChange}
 				{...props}
 			/>
 
-			{showClearButton && <ClearButton onClick={handleClear} />}
+			{shouldShowClearButton && <ClearButton onClick={handleClear} />}
 			{rightSlot && (
 				<span className="ygi:flex ygi:items-center ygi:shrink-0">
 					{rightSlot}
