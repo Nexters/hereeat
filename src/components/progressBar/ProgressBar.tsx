@@ -1,16 +1,10 @@
-import type { ComponentProps } from 'react';
-import { twJoin } from 'tailwind-merge';
-import { HeartIcon } from '#/components/heartIcon';
-import { motion, AnimatePresence } from 'motion/react';
+import type { ComponentProps } from "react";
+import { twJoin } from "tailwind-merge";
+import { HeartIcon } from "#/components/heartIcon";
+import { motion, AnimatePresence } from "motion/react";
 
-const containerClasses =
-	'ygi:relative ygi:h-[12px] ygi:w-full ygi:rounded-sm ygi:bg-palette-gray-200 ygi:overflow-visible';
-
-const fillClasses =
-	'ygi:absolute ygi:top-0 ygi:left-0 ygi:h-full ygi:rounded-sm ygi:bg-palette-primary-500';
-
-export interface ProgressBarProps extends ComponentProps<'div'> {
-	value: number; // 0-100
+export interface ProgressBarProps extends ComponentProps<"div"> {
+	value: number;
 }
 
 export const ProgressBar = ({
@@ -19,11 +13,14 @@ export const ProgressBar = ({
 	...props
 }: ProgressBarProps) => {
 	const clampedValue = Math.min(Math.max(value, 0), 100);
-	const isValue = clampedValue > 0;
+	const showIndicator = clampedValue > 0;
 
 	return (
 		<div
-			className={twJoin(containerClasses, className)}
+			className={twJoin(
+				"ygi:relative ygi:h-3 ygi:w-full ygi:overflow-visible ygi:rounded-sm ygi:bg-palette-gray-200",
+				className,
+			)}
 			role="progressbar"
 			aria-valuenow={clampedValue}
 			aria-valuemin={0}
@@ -31,30 +28,30 @@ export const ProgressBar = ({
 			{...props}
 		>
 			<motion.div
-				className={fillClasses}
-				initial={{ width: '0%' }}
+				className="ygi:absolute ygi:top-0 ygi:left-0 ygi:h-full ygi:rounded-sm ygi:bg-palette-primary-500"
+				initial={{ width: "0%" }}
 				animate={{ width: `${clampedValue}%` }}
 				transition={{
 					duration: 0.3,
-					ease: 'easeOut',
+					ease: "easeOut",
 				}}
 			/>
 
 			<AnimatePresence>
-				{isValue && (
+				{showIndicator && (
 					<motion.div
 						key="indicator"
-						className="ygi:absolute ygi:top-1/2 ygi:-translate-y-1/2 ygi:h-[28px] ygi:w-[28px] ygi:rounded-full ygi:bg-palette-primary-200 ygi:flex ygi:items-center ygi:justify-center ygi:border ygi:border-palette-common-white"
-						initial={{ opacity: 0, scale: 0.5, left: '-14px' }}
+						className="ygi:absolute ygi:top-1/2 ygi:flex ygi:h-7 ygi:w-7 ygi:-translate-y-1/2 ygi:items-center ygi:justify-center ygi:rounded-full ygi:border ygi:border-palette-common-white ygi:bg-palette-primary-200"
+						initial={{ opacity: 0, scale: 0.5, left: "-14px" }}
 						animate={{
 							opacity: 1,
 							scale: 1,
 							left: `calc(${clampedValue}% - 14px)`,
 						}}
-						exit={{ opacity: 0, scale: 0.5, left: '-14px' }}
+						exit={{ opacity: 0, scale: 0.5, left: "-14px" }}
 						transition={{
 							duration: 0.3,
-							ease: 'easeOut',
+							ease: "easeOut",
 						}}
 					>
 						<HeartIcon

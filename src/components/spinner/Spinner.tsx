@@ -14,9 +14,9 @@ const spinnerVariants = cva(
 	{
 		variants: {
 			size: {
-				small: "ygi:w-5 ygi:h-5",
-				medium: "ygi:w-8 ygi:h-8",
-				large: "ygi:w-11 ygi:h-11",
+				small: "ygi:h-5 ygi:w-5",
+				medium: "ygi:h-8 ygi:w-8",
+				large: "ygi:h-11 ygi:w-11",
 			},
 		},
 		defaultVariants: {
@@ -25,8 +25,10 @@ const spinnerVariants = cva(
 	},
 );
 
-export interface SpinnerProps
-	extends Omit<SVGProps<SVGSVGElement>, "children"> {
+export interface SpinnerProps extends Omit<
+	SVGProps<SVGSVGElement>,
+	"children"
+> {
 	size?: "small" | "medium" | "large";
 }
 
