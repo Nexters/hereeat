@@ -1,10 +1,10 @@
-import { ArrowLeftIcon } from '#/components/ArrowLeftIcon';
-import { ChevronRightIcon } from '#/components/ChevronRightIcon';
-import { CircleIcon } from '#/components/CircleIcon';
-import { CrownIcon } from '#/components/CrownIcon';
-import { HeartIcon } from '#/components/HeartIcon';
-import { StarIcon } from '#/components/StarIcon';
-import { XIcon } from '#/components/XIcon';
+import { ArrowLeftIcon } from '#/components/arrowLeftIcon';
+import { ChevronRightIcon } from '#/components/chevronRightIcon';
+import { CircleIcon } from '#/components/circleIcon';
+import { CrownIcon } from '#/components/crownIcon';
+import { HeartIcon } from '#/components/heartIcon';
+import { StarIcon } from '#/components/starIcon';
+import { XIcon } from '#/components/xIcon';
 
 type IconGridItemProps = {
 	name: string;

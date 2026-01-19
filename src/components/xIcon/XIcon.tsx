@@ -1,4 +1,4 @@
-import { IconBase, IconBaseProps } from "../IconBase";
+import { IconBase, type IconBaseProps } from "../iconBase";
 
 export type XIconProps = Omit<IconBaseProps, "children">;
 
