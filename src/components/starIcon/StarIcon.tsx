@@ -1,14 +1,16 @@
-import type { SVGProps } from 'react';
+import type { SVGProps } from "react";
 
-export interface StarIconProps
-	extends Omit<SVGProps<SVGSVGElement>, 'children'> {
+export interface StarIconProps extends Omit<
+	SVGProps<SVGSVGElement>,
+	"children"
+> {
 	size?: number | string;
 	color?: string;
 }
 
 export const StarIcon = ({
 	size = 16,
-	color = 'currentColor',
+	color = "currentColor",
 	...props
 }: StarIconProps) => {
 	return (

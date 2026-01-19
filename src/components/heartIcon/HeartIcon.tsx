@@ -1,14 +1,16 @@
-import type { SVGProps } from 'react';
+import type { SVGProps } from "react";
 
-export interface HeartIconProps
-	extends Omit<SVGProps<SVGSVGElement>, 'children'> {
+export interface HeartIconProps extends Omit<
+	SVGProps<SVGSVGElement>,
+	"children"
+> {
 	size?: number | string;
 	color?: string;
 }
 
 export const HeartIcon = ({
 	size = 16,
-	color = 'currentColor',
+	color = "currentColor",
 	...props
 }: HeartIconProps) => {
 	return (

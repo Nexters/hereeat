@@ -1,8 +1,8 @@
-import type { SVGProps } from 'react';
+import type { SVGProps } from "react";
 
 export interface CrownIconProps extends Omit<
 	SVGProps<SVGSVGElement>,
-	'children'
+	"children"
 > {
 	size?: number | string;
 }

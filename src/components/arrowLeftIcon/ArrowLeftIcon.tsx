@@ -1,8 +1,8 @@
-import type { SVGProps } from 'react';
+import type { SVGProps } from "react";
 
 export interface ArrowLeftIconProps extends Omit<
 	SVGProps<SVGSVGElement>,
-	'children'
+	"children"
 > {
 	size?: number | string;
 	color?: string;
@@ -10,7 +10,7 @@ export interface ArrowLeftIconProps extends Omit<
 
 export const ArrowLeftIcon = ({
 	size = 16,
-	color = 'currentColor',
+	color = "currentColor",
 	...props
 }: ArrowLeftIconProps) => {
 	return (

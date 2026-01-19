@@ -1,6 +1,6 @@
-import { IconBase, IconBaseProps } from '../IconBase';
+import { IconBase, IconBaseProps } from "../IconBase";
 
-export type CircleIconProps = Omit<IconBaseProps, 'children'>;
+export type CircleIconProps = Omit<IconBaseProps, "children">;
 
 export const CircleIcon = ({ size = 16, ...props }: CircleIconProps) => {
 	return (

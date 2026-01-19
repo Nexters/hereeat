@@ -1,6 +1,6 @@
-import { IconBase, IconBaseProps } from '../IconBase';
+import { IconBase, IconBaseProps } from "../IconBase";
 
-export type ChevronRightIconProps = Omit<IconBaseProps, 'children'>;
+export type ChevronRightIconProps = Omit<IconBaseProps, "children">;
 
 export const ChevronRightIcon = ({
 	size = 16,

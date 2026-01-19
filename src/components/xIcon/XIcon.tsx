@@ -1,6 +1,6 @@
-import { IconBase, IconBaseProps } from '../IconBase';
+import { IconBase, IconBaseProps } from "../IconBase";
 
-export type XIconProps = Omit<IconBaseProps, 'children'>;
+export type XIconProps = Omit<IconBaseProps, "children">;
 
 export const XIcon = ({ size = 16, ...props }: XIconProps) => {
 	return (
