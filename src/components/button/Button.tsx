@@ -7,33 +7,38 @@ const buttonVariants = cva(
 	[
 		'ygi:inline-flex ygi:items-center ygi:justify-center',
 		'ygi:text-center ygi:whitespace-nowrap',
-		'ygi:rounded-md ygi:px-xl ygi:py-sm',
+		'ygi:px-xl ygi:py-sm',
 		'ygi:cursor-pointer ygi:transition-colors',
 		'ygi:disabled:cursor-not-allowed ygi:disabled:opacity-50',
 		'ygi:heading-18-bd',
 	],
 	{
 		variants: {
-			color: {
+			variant: {
 				primary: [
-					'ygi:bg-palette-gray-800 ygi:text-palette-common-white',
-					'ygi:hover:bg-palette-gray-900',
-					'ygi:disabled:hover:bg-palette-gray-800',
+					'ygi:bg-palette-gray-900 ygi:text-palette-common-white',
+					'ygi:hover:bg-palette-gray-800',
+					'ygi:disabled:hover:bg-palette-gray-900',
 				],
 				secondary: [
-					'ygi:bg-palette-gray-200 ygi:text-palette-gray-800',
-					'ygi:hover:bg-palette-gray-300',
-					'ygi:disabled:hover:bg-palette-gray-200',
-				],
-				tertiary: [
 					'ygi:bg-palette-primary-500 ygi:text-palette-common-white',
 					'ygi:hover:bg-palette-primary-700',
 					'ygi:disabled:hover:bg-palette-primary-500',
 				],
+				tertiary: [
+					'ygi:bg-palette-gray-100 ygi:text-palette-gray-500',
+					'ygi:hover:bg-palette-gray-200 ygi:hover:text-palette-gray-600',
+					'ygi:disabled:hover:bg-palette-gray-100 ygi:disabled:hover:text-palette-gray-500',
+				],
+			},
+			shape: {
+				rounded: 'ygi:rounded-md',
+				pill: 'ygi:rounded-full',
 			},
 		},
 		defaultVariants: {
-			color: 'primary',
+			variant: 'primary',
+			shape: 'rounded',
 		},
 	},
 );
@@ -44,7 +49,8 @@ export type ButtonProps = ComponentProps<'button'> &
 	};
 
 export const Button = ({
-	color = 'primary',
+	variant = 'primary',
+	shape = 'rounded',
 	disabled = false,
 	children,
 	asChild = false,
@@ -61,7 +67,8 @@ export const Button = ({
 			aria-disabled={disabled}
 			className={twJoin(
 				buttonVariants({
-					color,
+					variant,
+					shape,
 				}),
 				className,
 			)}
