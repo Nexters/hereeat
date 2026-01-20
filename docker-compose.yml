@@ -1,0 +1,27 @@
+services:
+  client:
+    image: rookieanddocker/yogieat-client:latest
+    container_name: client
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    labels:
+      - "name=client"
+      - "mode=production"
+  nginx:
+    image: rookieanddocker/yogieat-nginx:latest
+    container_name: nginx
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - client
+    labels:
+      - "name=nginx"
+      - "mode=production"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: on-failure
