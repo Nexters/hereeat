@@ -1,4 +1,5 @@
 import { Layout } from "#/components/layout";
+import { Tag } from "#/components/tag";
 import { colors } from "#/constants/color";
 
 export default function Home() {
@@ -10,6 +11,11 @@ export default function Home() {
         </div>
       </Layout.Header>
       <Layout.Content>
+        <div className="ygi:h-80 ygi:bg-surface-white ygi:flex ygi:items-center ygi:gap-md ygi:justify-center ygi:w-full">
+          <Tag>Tag (size (default) = medium)</Tag>
+          <Tag size="small">Tag (size = small)</Tag>
+          <Tag size="medium">Tag (size = medium)</Tag>     
+        </div>
         <div className="ygi:h-80 ygi:bg-surface-primary ygi:flex ygi:items-center ygi:justify-center ygi:w-full">
           <h1 className="ygi:display-28-bd ygi:text-text-primary">section 1</h1>
         </div>
