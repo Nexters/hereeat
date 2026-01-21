@@ -1,17 +1,20 @@
-import type { ComponentProps } from 'react';
-import { twJoin } from 'tailwind-merge';
+import type { ComponentPropsWithoutRef } from "react";
+import { twJoin } from "tailwind-merge";
 
-export type DescriptionProps = ComponentProps<"p">;
+export interface DescriptionProps extends Omit<
+	ComponentPropsWithoutRef<"p">,
+	"className" | "children"
+> {
+	children: string;
+}
 
-export const Description = ({ children, className, ref, ...props }: DescriptionProps) => {
+export const Description = ({ children, ...props }: DescriptionProps) => {
 	return (
 		<p
-			ref={ref}
 			className={twJoin(
-				'ygi:font-suit-medium ygi:text-body-l ygi:text-palette-text-secondary',
-				'ygi:leading-normal ygi:tracking-tight',
-				'ygi:w-full',
-				className,
+				"ygi:body-16-md ygi:text-text-secondary",
+				"ygi:leading-normal ygi:tracking-tight",
+				"ygi:w-full",
 			)}
 			{...props}
 		>
