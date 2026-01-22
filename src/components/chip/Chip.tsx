@@ -35,9 +35,16 @@ const chipVariants = cva(
 export type ChipProps = ComponentProps<"button"> &
 	VariantProps<typeof chipVariants>;
 
-export const Chip = ({ selected, children, disabled, ...props }: ChipProps) => {
+export const Chip = ({
+	ref,
+	selected,
+	children,
+	disabled,
+	...props
+}: ChipProps) => {
 	return (
 		<button
+			ref={ref}
 			aria-pressed={selected ?? false}
 			disabled={disabled}
 			className={chipVariants({ selected })}

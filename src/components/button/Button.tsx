@@ -1,7 +1,6 @@
-import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ComponentProps } from "react";
-import { twJoin, twMerge } from "tailwind-merge";
+import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
 	[
@@ -47,24 +46,18 @@ const buttonVariants = cva(
 );
 
 export type ButtonProps = ComponentProps<"button"> &
-	VariantProps<typeof buttonVariants> & {
-		asChild?: boolean;
-	};
+	VariantProps<typeof buttonVariants>;
 
 export const Button = ({
 	variant = "primary",
 	shape = "rounded",
 	disabled = false,
 	children,
-	asChild = false,
-	className,
 	ref,
 	...props
 }: ButtonProps) => {
-	const Component = asChild ? Slot : "button";
-
 	return (
-		<Component
+		<button
 			ref={ref}
 			disabled={disabled}
 			aria-disabled={disabled}
@@ -73,11 +66,10 @@ export const Button = ({
 					variant,
 					shape,
 				}),
-				className,
 			)}
 			{...props}
 		>
 			{children}
-		</Component>
+		</button>
 	);
 };
