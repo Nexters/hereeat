@@ -37,20 +37,26 @@ const buttonVariants = cva(
 				rounded: "ygi:rounded-md",
 				pill: "ygi:rounded-full",
 			},
+			width: {
+				full: "ygi:w-full",
+				fit: "ygi:w-fit",
+			},
 		},
 		defaultVariants: {
 			variant: "primary",
 			shape: "rounded",
+			width: "fit",
 		},
 	},
 );
 
-export type ButtonProps = ComponentProps<"button"> &
+export type ButtonProps = Omit<ComponentProps<"button">, "className"> &
 	VariantProps<typeof buttonVariants>;
 
 export const Button = ({
 	variant = "primary",
 	shape = "rounded",
+	width = "fit",
 	disabled = false,
 	children,
 	ref,
@@ -65,6 +71,7 @@ export const Button = ({
 				buttonVariants({
 					variant,
 					shape,
+					width,
 				}),
 			)}
 			{...props}

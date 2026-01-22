@@ -111,18 +111,18 @@ export default function ButtonPage() {
 						Two Buttons Layout
 					</h2>
 					<div className="ygi:flex ygi:gap-sm">
-						<Button variant="tertiary" className="ygi:flex-1">
+						<Button variant="tertiary" width="full">
 							취소
 						</Button>
-						<Button variant="primary" className="ygi:flex-1">
+						<Button variant="primary" width="full">
 							확인
 						</Button>
 					</div>
 					<div className="ygi:flex ygi:gap-sm">
-						<Button variant="tertiary" className="ygi:flex-1">
+						<Button variant="tertiary" width="full">
 							취소
 						</Button>
-						<Button variant="secondary" className="ygi:flex-1">
+						<Button variant="secondary" width="full">
 							확인
 						</Button>
 					</div>
@@ -136,10 +136,10 @@ export default function ButtonPage() {
 					<h2 className="ygi:heading-20-sb ygi:text-gray-900">
 						Full Width Button
 					</h2>
-					<Button variant="primary" className="ygi:w-full">
+					<Button variant="primary" width="full">
 						전체 너비 버튼
 					</Button>
-					<Button variant="secondary" className="ygi:w-full">
+					<Button variant="secondary" width="full">
 						전체 너비 버튼 (Secondary)
 					</Button>
 					<p className="ygi:body-14-rg ygi:text-gray-500">

@@ -32,7 +32,7 @@ const chipVariants = cva(
 	},
 );
 
-export type ChipProps = ComponentProps<"button"> &
+export type ChipProps = Omit<ComponentProps<"button">, "className"> &
 	VariantProps<typeof chipVariants>;
 
 export const Chip = ({
