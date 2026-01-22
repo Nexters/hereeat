@@ -1,17 +1,16 @@
-import type { ComponentProps } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 import { twJoin } from "tailwind-merge";
 import { HeartIcon } from "#/components/heartIcon";
 import { motion, AnimatePresence } from "motion/react";
 
-export interface ProgressBarProps extends ComponentProps<"div"> {
+export interface ProgressBarProps extends Omit<
+	ComponentPropsWithoutRef<"div">,
+	"className"
+> {
 	value: number;
 }
 
-export const ProgressBar = ({
-	value,
-	className,
-	...props
-}: ProgressBarProps) => {
+export const ProgressBar = ({ value, ...props }: ProgressBarProps) => {
 	const clampedValue = Math.min(Math.max(value, 0), 100);
 	const showIndicator = clampedValue > 0;
 
@@ -19,7 +18,6 @@ export const ProgressBar = ({
 		<div
 			className={twJoin(
 				"ygi:relative ygi:h-3 ygi:w-full ygi:overflow-visible ygi:rounded-sm ygi:bg-surface-gray",
-				className,
 			)}
 			role="progressbar"
 			aria-valuenow={clampedValue}
