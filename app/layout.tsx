@@ -35,10 +35,6 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				{children}
-				<Toaster
-					offset={{ bottom: 80 }}
-					mobileOffset={{ bottom: 150 }}
-				/>
 			</body>
 		</html>
 	);
