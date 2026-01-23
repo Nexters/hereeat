@@ -10,7 +10,12 @@ export type ToasterProps = Pick<
 	"offset" | "mobileOffset" | "gap" | "toastOptions"
 >;
 
-export const Toaster = ({ offset, mobileOffset, gap, toastOptions = { duration: 3000 } }: ToasterProps) => {
+export const Toaster = ({
+	offset,
+	mobileOffset,
+	gap,
+	toastOptions = { duration: 3000 },
+}: ToasterProps) => {
 	return (
 		<SonnerToaster
 			position="bottom-center"
