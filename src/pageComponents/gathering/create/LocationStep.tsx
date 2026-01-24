@@ -11,7 +11,7 @@ export function LocationStep({ onComplete }: LocationStepProps) {
 	return (
 		<div className="ygi:flex ygi:flex-col ygi:gap-xl">
 			<StepIndicator currentStep={3} totalSteps={3} />
-			<h1 className="ygi:heading-22-bd ygi:text-text-primary ygi:px-xl">
+			<h1 className="ygi:px-xl ygi:heading-22-bd ygi:text-text-primary">
 				장소를 선택해 주세요
 			</h1>
 			<p className="ygi:px-xl ygi:text-text-secondary">

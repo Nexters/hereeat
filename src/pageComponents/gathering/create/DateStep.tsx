@@ -11,7 +11,7 @@ export function DateStep({ onNext }: DateStepProps) {
 	return (
 		<div className="ygi:flex ygi:flex-col ygi:gap-xl">
 			<StepIndicator currentStep={2} totalSteps={3} />
-			<h1 className="ygi:heading-22-bd ygi:text-text-primary ygi:px-xl">
+			<h1 className="ygi:px-xl ygi:heading-22-bd ygi:text-text-primary">
 				약속 날짜를 입력해 주세요
 			</h1>
 			<p className="ygi:px-xl ygi:text-text-secondary">

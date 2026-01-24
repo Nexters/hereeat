@@ -12,7 +12,7 @@ export const StepIndicator = ({
 	return (
 		<div
 			className={twJoin(
-				"ygi:gap-0.5 ygi:px-space-24 ygi:flex ygi:items-center",
+				"ygi:px-space-24 ygi:flex ygi:items-center ygi:gap-0.5",
 				"ygi:body-16-bd ygi:text-text-interactive",
 			)}
 		>
