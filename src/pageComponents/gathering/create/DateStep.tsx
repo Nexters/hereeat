@@ -30,14 +30,14 @@ export const DateStep = ({ onNext }: DateStepProps) => {
 		setValue("meetingDate", formatted, { shouldValidate: true });
 	};
 
+	const handleDateClear = () => {
+		setValue("meetingDate", "", { shouldValidate: true });
+	};
+
 	const handleTimeSlotChange = (slot: TimeSlot) => {
-		if (timeSlot === slot) {
-			setValue("timeSlot", undefined as unknown as TimeSlot, {
-				shouldValidate: true,
-			});
-		} else {
-			setValue("timeSlot", slot, { shouldValidate: true });
-		}
+		setValue("timeSlot", slot === timeSlot ? undefined : slot, {
+			shouldValidate: true,
+		});
 	};
 
 	return (
@@ -57,8 +57,10 @@ export const DateStep = ({ onNext }: DateStepProps) => {
 								: undefined
 						}
 						inputMode="numeric"
+						showClearButton
 						value={meetingDate || ""}
 						onChange={handleDateChange}
+						onClear={handleDateClear}
 					/>
 				</div>
 
