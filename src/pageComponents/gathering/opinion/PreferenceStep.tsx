@@ -13,9 +13,9 @@ import { RankSection } from "./RankSection";
 import type {
 	OpinionForm,
 	FoodCategory,
+	RankKey,
 	PreferenceStepProps,
 } from "#/types/gathering";
-import type { RankKey } from "#/constants/gathering/opinion";
 
 export const PreferenceStepContent = () => {
 	const { control } = useFormContext<OpinionForm>();
@@ -103,7 +103,10 @@ export const PreferenceStepContent = () => {
 										rank,
 										preferredMenus,
 									)}
-									isDisabled={isDisabled(rank, preferredMenus)}
+									isDisabled={isDisabled(
+										rank,
+										preferredMenus,
+									)}
 									onMenuSelect={(menu) =>
 										handleMenuSelect(rank, menu)
 									}
