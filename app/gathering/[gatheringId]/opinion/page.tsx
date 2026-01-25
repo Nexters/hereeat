@@ -70,7 +70,7 @@ export default function OpinionPage() {
 					/>
 				</Layout.Content>
 				<Layout.Footer background="gray">
-					<div className="ygi:px-6 ygi:py-auto">
+					<div className="ygi:py-auto ygi:px-6">
 						<Button variant="primary" width="full" onClick={next}>
 							내 취향 입력
 						</Button>
