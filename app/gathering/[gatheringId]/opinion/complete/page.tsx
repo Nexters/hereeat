@@ -14,7 +14,7 @@ export default function OpinionCompletePage() {
 	const isComplete = submittedCount >= totalCount;
 
 	return (
-		<Layout.Root background="gray">
+		<Layout.Root>
 			<CompleteView
 				totalCount={totalCount}
 				submittedCount={submittedCount}
