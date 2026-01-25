@@ -42,3 +42,5 @@ export interface MeetingContext {
 	totalParticipants?: number;
 	submittedCount?: number;
 }
+
+export type { BaseStepProps, IntroStepProps } from "./stepComponents";
