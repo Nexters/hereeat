@@ -33,7 +33,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="ygi:overflow-x-hidden">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} ygi:overflow-x-hidden antialiased`}
+				className={`${geistSans.variable} ${geistMono.variable} antialiased ygi:overflow-x-hidden`}
 			>
 				{children}
 				<Toaster offset={100} />
