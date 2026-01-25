@@ -3,17 +3,28 @@
 import { useParams } from "next/navigation";
 import { useMemo } from "react";
 
-import { IntroStep } from "#/pageComponents/gathering/opinion";
-import { useOpinionFunnel } from "#/hooks/gathering";
+import {
+	IntroStep,
+	DistanceStepContent,
+	DistanceStepFooter,
+	StepTransition,
+} from "#/pageComponents/gathering/opinion";
+import { useOpinionForm, useOpinionFunnel } from "#/hooks/gathering";
 import { Button } from "#/components/button";
 import { Layout } from "#/components/layout";
 import { MOCK_MEETING_DATA } from "#/constants/gathering/opinion/meeting";
 import { MeetingContext } from "#/types/gathering";
+import { useRouter } from "next/router";
+import { FormProvider } from "react-hook-form";
+import { BackwardButton } from "#/components/backwardButton";
 
 export default function OpinionPage() {
 	const params = useParams();
+	const router = useRouter();
 	const gatheringId = params.gatheringId as string;
-	const { step, next } = useOpinionFunnel();
+
+	const form = useOpinionForm();
+	const { step, direction, next, back, isFirstStep } = useOpinionFunnel();
 
 	// Meeting context
 	const meetingContext = useMemo<MeetingContext>(
@@ -24,6 +35,14 @@ export default function OpinionPage() {
 		}),
 		[gatheringId],
 	);
+
+	const handleBackward = () => {
+		if (isFirstStep) {
+			router.push(`/gathering/${gatheringId}`);
+		} else {
+			back();
+		}
+	};
 
 	// Intro step - special layout
 	if (step === "intro") {
@@ -49,4 +68,39 @@ export default function OpinionPage() {
 			</Layout.Root>
 		);
 	}
+
+	// Survey steps - with FormProvider
+	const renderContent = () => {
+		switch (step) {
+			case "distance":
+				return <DistanceStepContent meetingContext={meetingContext} />;
+			default:
+				return null;
+		}
+	};
+
+	const renderFooter = () => {
+		switch (step) {
+			case "distance":
+				return <DistanceStepFooter onNext={next} />;
+			default:
+				return null;
+		}
+	};
+
+	return (
+		<FormProvider {...form}>
+			<Layout.Root>
+				<Layout.Header>
+					<BackwardButton onClick={handleBackward} />
+				</Layout.Header>
+				<Layout.Content>
+					<StepTransition step={step} direction={direction}>
+						{renderContent()}
+					</StepTransition>
+				</Layout.Content>
+				{renderFooter()}
+			</Layout.Root>
+		</FormProvider>
+	);
 }
