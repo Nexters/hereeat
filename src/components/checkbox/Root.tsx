@@ -46,8 +46,8 @@ export const Root = ({
 				onClick={handleClick}
 				onKeyDown={handleKeyDown}
 				className={clsx(
-					"ygi:inline-flex ygi:items-center ygi:gap-2 ygi:cursor-pointer ygi:select-none",
-					disabled && "ygi:opacity-50 ygi:cursor-not-allowed",
+					"ygi:inline-flex ygi:cursor-pointer ygi:items-center ygi:gap-2 ygi:select-none",
+					disabled && "ygi:cursor-not-allowed ygi:opacity-50",
 				)}
 			>
 				{children}

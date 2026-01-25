@@ -90,17 +90,17 @@ export const DislikeStepContent = () => {
 export const DislikeStepFooter = ({
 	onNext,
 }: Pick<DislikeStepProps, "onNext">) => {
-		const handleNext = useCallback(() => {
-			onNext();
-		}, [onNext]);
+	const handleNext = useCallback(() => {
+		onNext();
+	}, [onNext]);
 
-		return (
-			<Layout.Footer>
-				<div className="ygi:px-6">
-					<Button variant="primary" width="full" onClick={handleNext}>
-						다음
-					</Button>
-				</div>
-			</Layout.Footer>
-		);
+	return (
+		<Layout.Footer>
+			<div className="ygi:px-6">
+				<Button variant="primary" width="full" onClick={handleNext}>
+					다음
+				</Button>
+			</div>
+		</Layout.Footer>
+	);
 };
