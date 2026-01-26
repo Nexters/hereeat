@@ -27,7 +27,6 @@ export const useDateStepValidation = (
 		name: ["meetingDate", "timeSlot"],
 	});
 
-
 	return !isUndefined(meetingDate) && !isUndefined(timeSlot);
 };
 
