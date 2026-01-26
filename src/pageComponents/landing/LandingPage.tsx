@@ -30,33 +30,33 @@ export const LandingPage = () => {
 				</div>
 
 				{/* Illustration Section */}
-				<div className="ygi:relative ygi:h-[328px] ygi:mt-5">
+				<div className="ygi:relative ygi:h-82 ygi:max-w-93.75 ygi:mx-auto ygi:mt-10">
 					{/* Green Sushi Card */}
-					<div className="ygi:absolute ygi:left-[-40px] ygi:top-[38px]">
-						<div className="ygi:relative ygi:w-[251px] ygi:h-[251px] ygi:flex ygi:items-center ygi:justify-center">
-							<div className="ygi:w-[178px] ygi:h-[178px] ygi:bg-palette-green-700 ygi:rounded-lg ygi:border-[6px] ygi:border-palette-common-white ygi:rotate-45" />
+					<div className="ygi:absolute ygi:-left-10 ygi:top-9.5">
+						<div className="ygi:relative ygi:w-62.75 ygi:h-62.75 ygi:flex ygi:items-center ygi:justify-center">
+							<div className="ygi:w-44.5 ygi:h-44.5 ygi:bg-palette-green-700 ygi:rounded-lg ygi:border-[6px] ygi:border-palette-common-white ygi:rotate-45" />
 							<div className="ygi:absolute ygi:inset-0 ygi:flex ygi:items-center ygi:justify-center">
 								<Image
 									src="/images/landing/sushi-1.svg"
 									alt=""
 									width={84}
 									height={61}
-									className="ygi:absolute ygi:left-[61px] ygi:top-[85px]"
+									className="ygi:absolute ygi:left-15.25 ygi:top-21.25"
 								/>
 								<Image
 									src="/images/landing/sushi-2.svg"
 									alt=""
 									width={93}
 									height={68}
-									className="ygi:absolute ygi:left-[97px] ygi:top-[100px]"
+									className="ygi:absolute ygi:left-24.25 ygi:top-25"
 								/>
 							</div>
 						</div>
 					</div>
 
 					{/* Blue Soup Card */}
-					<div className="ygi:absolute ygi:right-[-40px] ygi:top-0">
-						<div className="ygi:relative ygi:w-[242px] ygi:h-[250px] ygi:flex ygi:items-center ygi:justify-center">
+					<div className="ygi:absolute ygi:-right-10 ygi:top-10.5">
+						<div className="ygi:relative ygi:w-60.5 ygi:h-62.5 ygi:flex ygi:items-center ygi:justify-center">
 							<Image
 								src="/images/landing/card-blue.svg"
 								alt=""
@@ -70,27 +70,27 @@ export const LandingPage = () => {
 									alt=""
 									width={134}
 									height={145}
-									className="ygi:rotate-[15deg]"
+									className="ygi:rotate-15"
 								/>
 							</div>
 						</div>
-						{/* Hand icons */}
-						<div className="ygi:absolute ygi:right-[30px] ygi:bottom-[-10px]">
+						{/* Hand icons - positioned together as one unit */}
+						<div className="ygi:absolute ygi:right-[175px] ygi:-bottom-[5px]">
 							<Image
 								src="/images/landing/hand-1.svg"
 								alt=""
 								width={82}
 								height={67}
-								className="ygi:rotate-[2.7deg]"
+								className="ygi:rotate-[2.72deg]"
 							/>
 						</div>
-						<div className="ygi:absolute ygi:right-0 ygi:bottom-[-40px]">
+						<div className="ygi:absolute ygi:right-[135px] ygi:-bottom-[18px]">
 							<Image
 								src="/images/landing/hand-2.svg"
 								alt=""
 								width={58}
 								height={58}
-								className="ygi:rotate-[2.7deg]"
+								className="ygi:rotate-[2.72deg]"
 							/>
 						</div>
 					</div>
@@ -101,33 +101,33 @@ export const LandingPage = () => {
 						alt=""
 						width={48}
 						height={48}
-						className="ygi:absolute ygi:left-[185px] ygi:top-0"
+						className="ygi:absolute ygi:left-46.25 ygi:top-0"
 					/>
 					<Image
 						src="/images/landing/heart-1.svg"
 						alt=""
 						width={48}
 						height={48}
-						className="ygi:absolute ygi:left-[221px] ygi:top-[41px] ygi:rotate-[-22deg]"
+						className="ygi:absolute ygi:left-55.25 ygi:top-10.25 ygi:rotate-[-21.93deg]"
 					/>
 					<Image
 						src="/images/landing/heart-3.svg"
 						alt=""
 						width={48}
 						height={48}
-						className="ygi:absolute ygi:left-[259px] ygi:top-[27px] ygi:rotate-[14deg]"
+						className="ygi:absolute ygi:left-64.75 ygi:top-6.75 ygi:rotate-[14.45deg]"
 					/>
 					<Image
 						src="/images/landing/heart-2.svg"
 						alt=""
 						width={48}
 						height={48}
-						className="ygi:absolute ygi:left-[97px] ygi:top-[197px] ygi:rotate-[30deg]"
+						className="ygi:absolute ygi:left-24.25 ygi:top-49.25 ygi:rotate-[30.45deg]"
 					/>
 				</div>
 
 				{/* CTA Button */}
-				<div className="ygi:absolute ygi:bottom-[60px] ygi:left-0 ygi:right-0 ygi:flex ygi:justify-center ygi:px-6">
+				<div className="ygi:absolute ygi:bottom-15 ygi:left-0 ygi:right-0 ygi:flex ygi:justify-center ygi:px-6">
 					<button
 						type="button"
 						onClick={handleStartClick}
