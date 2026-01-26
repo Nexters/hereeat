@@ -68,7 +68,6 @@ export const formatDateInput = (value: string): string => {
 	return `${digits.slice(0, 4)}.${digits.slice(4, 6)}.${digits.slice(6)}`;
 };
 
-
 const DATE_FORMAT = "yyyy.MM.dd";
 
 /**

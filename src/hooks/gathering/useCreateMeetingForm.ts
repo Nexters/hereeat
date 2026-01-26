@@ -28,7 +28,11 @@ export const useDateStepValidation = (
 		name: ["meetingDate", "timeSlot"],
 	});
 
-	return !isNil(meetingDate) && !isNil(timeSlot) && isValidDateFormat(meetingDate);
+	return (
+		!isNil(meetingDate) &&
+		!isNil(timeSlot) &&
+		isValidDateFormat(meetingDate)
+	);
 };
 
 export const useLocationStepValidation = (
