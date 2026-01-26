@@ -70,14 +70,14 @@ export const DateStep = ({ onNext }: DateStepProps) => {
 					</h2>
 					<div className="ygi:flex ygi:gap-3">
 						<Chip
-							selected={timeSlot === "lunch"}
-							onClick={() => handleTimeSlotChange("lunch")}
+							selected={timeSlot === "LUNCH"}
+							onClick={() => handleTimeSlotChange("LUNCH")}
 						>
 							점심
 						</Chip>
 						<Chip
-							selected={timeSlot === "dinner"}
-							onClick={() => handleTimeSlotChange("dinner")}
+							selected={timeSlot === "DINNER"}
+							onClick={() => handleTimeSlotChange("DINNER")}
 						>
 							저녁
 						</Chip>
