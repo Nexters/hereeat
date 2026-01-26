@@ -8,8 +8,7 @@ import { Button } from "#/components/button/Button";
 import { InputField } from "#/components/inputField";
 import { Chip } from "#/components/chip";
 import { useDateStepValidation } from "#/hooks/gathering";
-import { DATE_PATTERN } from "#/constants/gathering/create";
-import { formatDateInput } from "#/utils/gathering/create";
+import { formatDateInput, isValidDateFormat } from "#/utils/gathering/create";
 import type { CreateMeetingForm, TimeSlot } from "#/types/gathering";
 
 interface DateStepProps {
@@ -23,7 +22,8 @@ export const DateStep = ({ onNext }: DateStepProps) => {
 	const meetingDate = useWatch({ control, name: "meetingDate" });
 	const timeSlot = useWatch({ control, name: "timeSlot" });
 
-	const hasDateError = meetingDate && !DATE_PATTERN.test(meetingDate);
+	const hasDateError =
+		meetingDate?.length === 10 && !isValidDateFormat(meetingDate);
 
 	const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const formatted = formatDateInput(e.target.value);
