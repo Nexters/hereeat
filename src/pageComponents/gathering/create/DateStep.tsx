@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormContext } from "react-hook-form";
+import { useFormContext, useWatch } from "react-hook-form";
 
 import { Layout } from "#/components/layout";
 import { StepIndicator } from "#/components/stepIndicator/StepIndicator";
@@ -17,11 +17,11 @@ interface DateStepProps {
 }
 
 export const DateStep = ({ onNext }: DateStepProps) => {
-	const { control, setValue, watch } = useFormContext<CreateMeetingForm>();
+	const { control, setValue } = useFormContext<CreateMeetingForm>();
 	const isValid = useDateStepValidation(control);
 
-	const meetingDate = watch("meetingDate");
-	const timeSlot = watch("timeSlot");
+	const meetingDate = useWatch({ control, name: "meetingDate" });
+	const timeSlot = useWatch({ control, name: "timeSlot" });
 
 	const hasDateError = meetingDate && !DATE_PATTERN.test(meetingDate);
 
