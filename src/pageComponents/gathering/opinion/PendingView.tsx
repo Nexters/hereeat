@@ -29,12 +29,13 @@ export const PendingView = ({}: PendingViewProps) => {
 					</StepHeader.Description>
 				</StepHeader.Root>
 
-				<div className="ygi:relative ygi:mt-22 ygi:h-75 ygi:w-70">
+				<div className="ygi:item-center ygi:mb-43 ygi:flex ygi:w-full ygi:flex-1 ygi:flex-col ygi:justify-center">
 					<Image
 						src="/images/opinion/prepare-suggestion.svg"
 						alt="메뉴 추천 준비중"
-						fill
-						className="ygi:object-contain"
+						width={280}
+						height={300}
+						className="ygi:mx-auto ygi:object-contain"
 						priority
 					/>
 				</div>
