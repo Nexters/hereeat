@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { twJoin } from "tailwind-merge";
 
 type LayoutBackground = "white" | "gray";
 
@@ -15,7 +16,11 @@ interface ContentProps {
 export const Content = ({ children, background = "white" }: ContentProps) => {
 	return (
 		<main
-			className={`ygi:relative ygi:h-dvh ygi:overflow-x-hidden ygi:overflow-y-auto ygi:pt-layout-header-height ygi:pb-layout-footer-height ${BACKGROUND_CLASSES[background]}`}
+			className={twJoin(
+				"ygi:relative ygi:h-dvh ygi:pt-layout-header-height ygi:pb-layout-footer-height",
+				"ygi:overflow-x-hidden ygi:overflow-y-auto ",
+				BACKGROUND_CLASSES[background],
+			)}
 		>
 			{children}
 		</main>
