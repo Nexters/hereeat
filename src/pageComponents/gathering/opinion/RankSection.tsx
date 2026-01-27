@@ -1,19 +1,13 @@
 "use client";
 
-import clsx from "clsx";
-
 import { Chip } from "#/components/chip";
-import {
-	FOOD_CATEGORIES,
-	RANK_LABELS,
-	NO_CARE_LABEL,
-} from "#/constants/gathering/opinion";
+import { FOOD_CATEGORIES, RANK_LABELS } from "#/constants/gathering/opinion";
 import type { FoodCategory, RankKey } from "#/types/gathering";
+import { twJoin } from "tailwind-merge";
 
 interface RankSectionProps {
 	rank: RankKey;
 	selectedMenu?: FoodCategory;
-	isNoneSelected: boolean;
 	isDisabled: boolean;
 	onMenuSelect: (menu: FoodCategory) => void;
 }
@@ -21,7 +15,6 @@ interface RankSectionProps {
 export const RankSection = ({
 	rank,
 	selectedMenu,
-	isNoneSelected,
 	isDisabled,
 	onMenuSelect,
 }: RankSectionProps) => {
@@ -33,7 +26,7 @@ export const RankSection = ({
 				</h2>
 			</div>
 			<div
-				className={clsx(
+				className={twJoin(
 					"ygi:flex ygi:flex-wrap ygi:gap-3",
 					isDisabled && "ygi:opacity-40",
 				)}
@@ -48,13 +41,6 @@ export const RankSection = ({
 						{category.label}
 					</Chip>
 				))}
-				<Chip
-					selected={isNoneSelected}
-					disabled={isDisabled}
-					onClick={() => onMenuSelect("none")}
-				>
-					{NO_CARE_LABEL}
-				</Chip>
 			</div>
 		</div>
 	);
