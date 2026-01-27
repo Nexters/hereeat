@@ -5,13 +5,7 @@ import { Layout } from "#/components/layout";
 import { StepHeader } from "#/components/stepHeader";
 import { twJoin } from "tailwind-merge";
 
-export interface PendingViewProps {
-	gatheringId: string;
-	totalCount: number;
-	submittedCount: number;
-}
-
-export const PendingView = ({}: PendingViewProps) => {
+export const PendingView = () => {
 	return (
 		<Layout.Content background="gray">
 			<div

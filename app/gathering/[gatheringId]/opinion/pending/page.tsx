@@ -1,7 +1,7 @@
 "use client";
 
+import { Button } from "#/components/button";
 import { Layout } from "#/components/layout";
-import { ShareButton } from "#/components/shareButton";
 import {
 	PendingView,
 	SubmissionBottomSheet,
@@ -24,11 +24,7 @@ export default function OpinionPendingPage() {
 
 	return (
 		<Layout.Root>
-			<PendingView
-				gatheringId={gatheringId}
-				totalCount={totalCount}
-				submittedCount={submittedCount}
-			/>
+			<PendingView />
 
 			<SubmissionBottomSheet
 				totalCount={totalCount}
@@ -37,7 +33,9 @@ export default function OpinionPendingPage() {
 
 			<Layout.Footer background="gray">
 				<div className="ygi:px-6">
-					<ShareButton gatheringId={gatheringId} disabled={true} />
+					<Button variant="primary" width="full" disabled>
+						추천 결과 보기
+					</Button>
 				</div>
 			</Layout.Footer>
 		</Layout.Root>

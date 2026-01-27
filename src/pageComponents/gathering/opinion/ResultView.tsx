@@ -40,8 +40,8 @@ export const ResultView = ({ recommendationResult }: ResultViewProps) => {
 				{/* Vote Summary */}
 				<VoteSummarySection
 					preferences={recommendationResult.preferences}
-				dislikes={recommendationResult.dislikes}
-				agreementRate={recommendationResult.agreementRate}
+					dislikes={recommendationResult.dislikes}
+					agreementRate={recommendationResult.agreementRate}
 				/>
 
 				{/* Other Candidates */}
