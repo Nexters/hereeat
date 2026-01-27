@@ -7,8 +7,7 @@ import Image from "next/image";
 export const IntroStep = ({ meetingContext }: IntroStepProps) => {
 	return (
 		<section className="ygi:flex ygi:h-full ygi:flex-col ygi:bg-bg-gray ygi:bg-clip-padding">
-			<div className="ygi:flex ygi:flex-col ygi:gap-6 ygi:pb-6">
-				<div className="ygi:h-12" />
+			<div className="ygi:flex ygi:flex-col ygi:gap-6">
 				<div className="ygi:flex ygi:flex-col ygi:gap-6 ygi:px-6">
 					<LogoIcon className="ygi:text-button-secondary" />
 					<h1 className="ygi:display-24-bd ygi:whitespace-pre-line ygi:text-text-primary">
