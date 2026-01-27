@@ -3,5 +3,8 @@ export { DistanceStepContent, DistanceStepFooter } from "./DistanceStep";
 export { DislikeStepContent, DislikeStepFooter } from "./DislikeStep";
 export { PreferenceStepContent, PreferenceStepFooter } from "./PreferenceStep";
 export { CompleteView } from "./CompleteView";
+export { PendingView } from "./PendingView";
+export { CompleteNotificationView } from "./CompleteNotificationView";
+export { ResultView } from "./ResultView";
 export { SubmissionBottomSheet } from "./SubmissionBottomSheet";
 export { StepTransition } from "./StepTransition";
