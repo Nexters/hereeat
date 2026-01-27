@@ -20,6 +20,7 @@ import { MOCK_MEETING_DATA } from "#/constants/gathering/opinion/meeting";
 import { MeetingContext } from "#/types/gathering";
 import { FormProvider } from "react-hook-form";
 import { BackwardButton } from "#/components/backwardButton";
+import { Toaster } from "#/components/toast";
 
 export default function OpinionPage() {
 	const params = useParams();
@@ -114,6 +115,7 @@ export default function OpinionPage() {
 				</Layout.Content>
 				{renderFooter()}
 			</Layout.Root>
+			<Toaster offset={{ bottom: 96 }} mobileOffset={{ bottom: 96 }} />
 		</FormProvider>
 	);
 }

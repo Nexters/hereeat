@@ -35,7 +35,7 @@ const isDisabled = (
 };
 
 export const PreferenceStepContent = () => {
-	const { control, watch } = useFormContext<OpinionForm>();
+	const { control } = useFormContext<OpinionForm>();
 
 	const handleMenuSelect = useCallback(
 		(
@@ -55,7 +55,9 @@ export const PreferenceStepContent = () => {
 				const existingRank = RANKS.find(
 					(r) => r !== rank && preferredMenus[r] === menu,
 				);
+
 				if (existingRank) {
+					console.log("trigger");
 					toast.warning("이미 선택되었어요. 다른 메뉴를 골라주세요!");
 					return;
 				}
@@ -81,8 +83,6 @@ export const PreferenceStepContent = () => {
 		[],
 	);
 
-	const preferredMenus = watch("preferredMenus") || {};
-
 	return (
 		<div className="ygi:flex ygi:flex-col ygi:gap-8 ygi:px-6 ygi:pt-3">
 			<StepIndicator currentStep={3} totalSteps={OPINION_TOTAL_STEPS} />
@@ -93,26 +93,32 @@ export const PreferenceStepContent = () => {
 			<Controller
 				name="preferredMenus"
 				control={control}
-				render={({ field }) => (
-					<>
-						{RANKS.map((rank) => (
-							<RankSection
-								key={rank}
-								rank={rank}
-								selectedMenu={preferredMenus[rank]}
-								isDisabled={isDisabled(rank, preferredMenus)}
-								onMenuSelect={(menu) =>
-									handleMenuSelect(
+				render={({ field }) => {
+					const preferredMenus = field.value || {};
+					return (
+						<>
+							{RANKS.map((rank) => (
+								<RankSection
+									key={rank}
+									rank={rank}
+									selectedMenu={preferredMenus[rank]}
+									isDisabled={isDisabled(
 										rank,
-										menu,
-										field.value || {},
-										field.onChange,
-									)
-								}
-							/>
-						))}
-					</>
-				)}
+										preferredMenus,
+									)}
+									onMenuSelect={(menu) =>
+										handleMenuSelect(
+											rank,
+											menu,
+											preferredMenus,
+											field.onChange,
+										)
+									}
+								/>
+							))}
+						</>
+					);
+				}}
 			/>
 		</div>
 	);
