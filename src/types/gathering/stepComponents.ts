@@ -1,5 +1,4 @@
-import type { OpinionStep } from "./index";
-import type { MeetingContext } from "#/constants/gathering/opinion/meeting";
+import type { OpinionStep, MeetingContext } from ".";
 
 export interface BaseStepProps {
 	meetingContext: MeetingContext;
