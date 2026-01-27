@@ -1,6 +1,6 @@
 "use client";
 
-import type { VoteStatistics, FoodVote } from "#/types/gathering";
+import type { FoodCategory } from "#/types/gathering";
 import { ProgressBar } from "#/components/progressBar";
 import { CircleIcon } from "#/icons/circleIcon";
 import { XIcon } from "#/icons/xIcon";
@@ -9,17 +9,21 @@ import { twJoin } from "tailwind-merge";
 import type { ReactNode } from "react";
 
 export interface VoteSummarySectionProps {
-	voteStats: VoteStatistics;
+	preferences: Record<string, number>;
+	dislikes: Record<string, number>;
+	agreementRate: number;
 }
 
 interface VoteCategoryProps {
 	icon: ReactNode;
 	title: string;
-	votes: FoodVote[];
+	votes: Record<string, number>;
 }
 
 const VoteCategory = ({ icon, title, votes }: VoteCategoryProps) => {
-	const sortedVotes = [...votes].sort((a, b) => b.count - a.count);
+	const sortedVotes = Object.entries(votes)
+		.map(([category, count]) => ({ category: category as FoodCategory, count }))
+		.sort((a, b) => b.count - a.count);
 
 	return (
 		<div className="ygi:flex ygi:flex-col ygi:gap-4">
@@ -56,7 +60,11 @@ const VoteCategory = ({ icon, title, votes }: VoteCategoryProps) => {
 	);
 };
 
-export const VoteSummarySection = ({ voteStats }: VoteSummarySectionProps) => {
+export const VoteSummarySection = ({
+	preferences,
+	dislikes,
+	agreementRate,
+}: VoteSummarySectionProps) => {
 	return (
 		<section
 			className={twJoin(
@@ -71,10 +79,10 @@ export const VoteSummarySection = ({ voteStats }: VoteSummarySectionProps) => {
 						의견 일치율
 					</h5>
 					<span className="ygi:shrink-0 ygi:body-18-bd ygi:text-text-interactive">
-						{voteStats.submissionRate}%
+						{agreementRate}%
 					</span>
 				</div>
-				<ProgressBar value={voteStats.submissionRate} />
+				<ProgressBar value={agreementRate} />
 			</div>
 
 			{/* Divider */}
@@ -94,7 +102,7 @@ export const VoteSummarySection = ({ voteStats }: VoteSummarySectionProps) => {
 					</div>
 				}
 				title="좋아하는 음식"
-				votes={voteStats.preferredFoods}
+				votes={preferences}
 			/>
 
 			{/* 피하고 싶은 음식 */}
@@ -111,7 +119,7 @@ export const VoteSummarySection = ({ voteStats }: VoteSummarySectionProps) => {
 					</div>
 				}
 				title="피하고 싶은 음식"
-				votes={voteStats.dislikedFoods}
+				votes={dislikes}
 			/>
 		</section>
 	);
