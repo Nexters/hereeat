@@ -43,31 +43,37 @@ export interface MeetingContext {
 }
 
 export interface Restaurant {
-	id: string;
-	name: string;
-	category: FoodCategory;
+	rank: number;
+	restaurantId: number;
+	restaurantName: string;
+	address: string;
 	rating: number;
-	distance: number;
-	imageUrl?: string;
-	address?: string;
-}
-
-export interface FoodVote {
-	category: FoodCategory;
-	count: number;
+	imageUrl: string | null;
+	mapUrl: string;
+	representativeReview: string;
+	description: string;
+	region: string | null;
+	location: {
+		type: string;
+		coordinates: [number, number];
+	};
+	largeCategory: FoodCategory;
+	mediumCategory: string;
+	majorityDistanceRange: DistanceRange;
 }
 
 export interface VoteStatistics {
-	totalVotes: number;
-	submissionRate: number;
-	preferredFoods: FoodVote[];
-	dislikedFoods: FoodVote[];
+	preferences: Record<string, number>;
+	dislikes: Record<string, number>;
+	agreementRate: number;
 }
 
 export interface RecommendationResult {
 	topRecommendation: Restaurant;
 	otherCandidates: Restaurant[];
-	voteStats: VoteStatistics;
+	preferences: Record<string, number>;
+	dislikes: Record<string, number>;
+	agreementRate: number;
 }
 
 export type {
