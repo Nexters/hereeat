@@ -36,7 +36,7 @@ export default function OpinionResultPage() {
 			/>
 
 			<Layout.Footer background="gray">
-				<div className="ygi:px-6">
+				<div className="ygi:mt-auto ygi:px-6 ygi:pt-4">
 					<ShareButton gatheringId={gatheringId} disabled={false} />
 				</div>
 			</Layout.Footer>
