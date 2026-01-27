@@ -2,7 +2,17 @@
 
 import { LogoIcon } from "#/icons/logoIcon";
 import type { IntroStepProps } from "#/types/gathering";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Player = dynamic(
+	() =>
+		import("@lottiefiles/react-lottie-player").then(
+			(module) => module.Player,
+		),
+	{
+		ssr: false,
+	},
+);
 
 export const IntroStep = ({ meetingContext }: IntroStepProps) => {
 	return (
@@ -20,15 +30,12 @@ export const IntroStep = ({ meetingContext }: IntroStepProps) => {
 				</div>
 			</div>
 			<div className="ygi:flex ygi:flex-1 ygi:items-center ygi:justify-center">
-				<div className="ygi:relative ygi:h-full ygi:w-full">
-					<Image
-						src="/images/opinion/opinion-intro.svg"
-						alt="메뉴 선택 일러스트"
-						fill
-						className="ygi:object-contain"
-						priority
-					/>
-				</div>
+				<Player
+					autoplay
+					loop
+					src="/lotties/opinion-landing.json"
+					style={{ width: "100%", height: "100%" }}
+				/>
 			</div>
 		</section>
 	);
