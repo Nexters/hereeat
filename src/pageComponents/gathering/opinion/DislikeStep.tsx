@@ -10,7 +10,6 @@ import { Button } from "#/components/button/Button";
 import { FoodCategoryButton } from "./FoodCategoryButton";
 import {
 	FOOD_CATEGORIES,
-	NO_CARE_LABEL,
 	OPINION_TOTAL_STEPS,
 } from "#/constants/gathering/opinion";
 import type {
@@ -44,19 +43,23 @@ export const DislikeStepContent = () => {
 				control={control}
 				render={({ field }) => {
 					const dislikedFoods = field.value || [];
-					const isNoCareSelected = dislikedFoods.length === 0;
 
 					const handleFoodToggle = (food: FoodCategory) => {
+						const isNoCareSelected = food === "ANY";
 						const isSelected = dislikedFoods.includes(food);
-						field.onChange(
-							isSelected
-								? dislikedFoods.filter((f) => f !== food)
-								: [...dislikedFoods, food],
-						);
-					};
 
-					const handleNoCareToggle = () => {
-						field.onChange([]);
+						if (isNoCareSelected) {
+							field.onChange(isSelected ? [] : ["ANY"]);
+							return;
+						}
+
+						const updatedDislikedFoods = isSelected
+							? dislikedFoods.filter((f) => f !== food)
+							: [...dislikedFoods, food];
+
+						field.onChange(
+							updatedDislikedFoods.filter((f) => f !== "ANY"),
+						);
 					};
 
 					return (
@@ -64,6 +67,7 @@ export const DislikeStepContent = () => {
 							{FOOD_CATEGORIES.map((category) => (
 								<FoodCategoryButton
 									key={category.value}
+									category={category.value}
 									selected={dislikedFoods.includes(
 										category.value,
 									)}
@@ -73,12 +77,6 @@ export const DislikeStepContent = () => {
 									label={category.label}
 								/>
 							))}
-							<FoodCategoryButton
-								variant="noPreference"
-								selected={isNoCareSelected}
-								onClick={handleNoCareToggle}
-								label={NO_CARE_LABEL}
-							/>
 						</div>
 					);
 				}}
