@@ -10,6 +10,8 @@ import {
 	DislikeStepContent,
 	DislikeStepFooter,
 	StepTransition,
+	PreferenceStepContent,
+	PreferenceStepFooter,
 } from "#/pageComponents/gathering/opinion";
 import { useOpinionForm, useOpinionFunnel } from "#/hooks/gathering";
 import { Button } from "#/components/button";
@@ -18,6 +20,7 @@ import { MOCK_MEETING_DATA } from "#/constants/gathering/opinion/meeting";
 import { MeetingContext } from "#/types/gathering";
 import { FormProvider } from "react-hook-form";
 import { BackwardButton } from "#/components/backwardButton";
+import { Toaster } from "#/components/toast";
 
 export default function OpinionPage() {
 	const params = useParams();
@@ -27,7 +30,6 @@ export default function OpinionPage() {
 	const form = useOpinionForm();
 	const { step, direction, next, back, isFirstStep } = useOpinionFunnel();
 
-	// Meeting context
 	const meetingContext = useMemo<MeetingContext>(
 		() => ({
 			gatheringId,
@@ -45,7 +47,10 @@ export default function OpinionPage() {
 		}
 	};
 
-	// Intro step - special layout
+	const handleComplete = () => {
+		router.replace(`/gathering/${gatheringId}/opinion/pending`);
+	};
+
 	if (step === "intro") {
 		return (
 			<Layout.Root>
@@ -70,13 +75,14 @@ export default function OpinionPage() {
 		);
 	}
 
-	// Survey steps - with FormProvider
 	const renderContent = () => {
 		switch (step) {
 			case "distance":
 				return <DistanceStepContent meetingContext={meetingContext} />;
 			case "dislike":
 				return <DislikeStepContent />;
+			case "preference":
+				return <PreferenceStepContent />;
 			default:
 				return null;
 		}
@@ -88,6 +94,8 @@ export default function OpinionPage() {
 				return <DistanceStepFooter onNext={next} />;
 			case "dislike":
 				return <DislikeStepFooter onNext={next} />;
+			case "preference":
+				return <PreferenceStepFooter onComplete={handleComplete} />;
 			default:
 				return null;
 		}
@@ -106,6 +114,7 @@ export default function OpinionPage() {
 				</Layout.Content>
 				{renderFooter()}
 			</Layout.Root>
+			<Toaster offset={{ bottom: 96 }} mobileOffset={{ bottom: 96 }} />
 		</FormProvider>
 	);
 }
