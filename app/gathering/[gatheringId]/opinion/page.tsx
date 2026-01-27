@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useMemo } from "react";
 
 import {
@@ -14,7 +14,6 @@ import { Button } from "#/components/button";
 import { Layout } from "#/components/layout";
 import { MOCK_MEETING_DATA } from "#/constants/gathering/opinion/meeting";
 import { MeetingContext } from "#/types/gathering";
-import { useRouter } from "next/router";
 import { FormProvider } from "react-hook-form";
 import { BackwardButton } from "#/components/backwardButton";
 
