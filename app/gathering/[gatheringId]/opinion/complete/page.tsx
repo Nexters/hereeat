@@ -36,7 +36,7 @@ export default function OpinionCompletePage() {
 				submittedCount={submittedCount}
 			/>
 
-			<Layout.Footer background="gray">
+			<Layout.Footer>
 				<div className="ygi:px-6">
 					<Button
 						variant="primary"
