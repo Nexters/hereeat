@@ -3,28 +3,33 @@
 import { Button } from "#/components/button";
 import { Layout } from "#/components/layout";
 import {
-	PendingView,
+	CompleteView,
 	SubmissionBottomSheet,
 } from "#/pageComponents/gathering/opinion";
 import { useParams } from "next/navigation";
 import { redirect } from "next/navigation";
 
-export default function OpinionPendingPage() {
+export default function OpinionCompletePage() {
 	const params = useParams();
 	const gatheringId = params.gatheringId as string;
 
 	// TODO: API 연동 시 실제 데이터로 교체
 	const totalCount = 5;
-	const submittedCount = 3;
+	const submittedCount = 5;
 
-	const isComplete = submittedCount >= totalCount;
-	if (isComplete) {
-		redirect(`/gathering/${gatheringId}/opinion/complete`);
+	const isPending = submittedCount < totalCount;
+
+	if (isPending) {
+		redirect(`/gathering/${gatheringId}/opinion/pending`);
 	}
+
+	const handleRedirectResult = () => {
+		redirect(`/gathering/${gatheringId}/opinion/result`);
+	};
 
 	return (
 		<Layout.Root>
-			<PendingView />
+			<CompleteView />
 
 			<SubmissionBottomSheet
 				totalCount={totalCount}
@@ -33,7 +38,11 @@ export default function OpinionPendingPage() {
 
 			<Layout.Footer background="gray">
 				<div className="ygi:px-6">
-					<Button variant="primary" width="full" disabled>
+					<Button
+						variant="primary"
+						width="full"
+						onClick={handleRedirectResult}
+					>
 						추천 결과 보기
 					</Button>
 				</div>
