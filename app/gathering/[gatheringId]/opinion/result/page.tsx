@@ -6,6 +6,7 @@ import { ResultView } from "#/pageComponents/gathering/opinion";
 import { MOCK_RECOMMENDATION_RESULT } from "#/constants/gathering/opinion/mockResults";
 import { useParams } from "next/navigation";
 import { redirect } from "next/navigation";
+import { BackwardButton } from "#/components/backwardButton";
 
 export default function OpinionResultPage() {
 	const params = useParams();
@@ -20,8 +21,15 @@ export default function OpinionResultPage() {
 		redirect(`/gathering/${gatheringId}/opinion/complete`);
 	}
 
+	const handleClickBackward = () => {
+		redirect(`/gathering/${gatheringId}/opinion/complete`);
+	};
+
 	return (
 		<Layout.Root>
+			<Layout.Header background="gray">
+				<BackwardButton onClick={handleClickBackward} />
+			</Layout.Header>
 			<ResultView
 				gatheringId={gatheringId}
 				recommendationResult={MOCK_RECOMMENDATION_RESULT}
