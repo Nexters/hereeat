@@ -21,8 +21,8 @@ export const SubmissionBottomSheet = ({
 		: `${totalCount}명 중 ${submittedCount}명이 제출했어요`;
 
 	const description = isComplete
-		? " 모두의 취향을 반영한 추천 결과를 보여드릴게요"
-		: "아직 입력하지 않은 분들께 링크를 공유해 주세요";
+		? "모두의 취향을 반영한 추천 결과를 보여드릴게요"
+		: "아직 제출하지 않은 모임원에게 알려주세요";
 
 	return (
 		<section className="ygi:fixed ygi:bottom-18 ygi:left-0 ygi:z-layout-footer ygi:flex ygi:w-full ygi:justify-center">
