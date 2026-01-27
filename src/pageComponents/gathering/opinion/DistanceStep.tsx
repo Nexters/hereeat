@@ -4,9 +4,9 @@ import { useCallback } from "react";
 import { useFormContext, Controller } from "react-hook-form";
 
 import { Layout } from "#/components/layout";
-import { StepIndicator } from "#/components/stepIndicator/StepIndicator";
+import { StepIndicator } from "#/components/stepIndicator";
 import { StepHeader } from "#/components/stepHeader";
-import { Button } from "#/components/button/Button";
+import { Button } from "#/components/button";
 import { Chip } from "#/components/chip";
 import { useDistanceStepValidation } from "#/hooks/gathering";
 import {

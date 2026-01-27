@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { FormProvider } from "react-hook-form";
 
 import { Layout } from "#/components/layout";
-import { BackwardButton } from "#/components/backwardButton/BackwardButton";
+import { BackwardButton } from "#/components/backwardButton";
 import {
 	PeopleStep,
 	DateStep,
