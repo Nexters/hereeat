@@ -10,6 +10,8 @@ import {
 	DislikeStepContent,
 	DislikeStepFooter,
 	StepTransition,
+	PreferenceStepContent,
+	PreferenceStepFooter,
 } from "#/pageComponents/gathering/opinion";
 import { useOpinionForm, useOpinionFunnel } from "#/hooks/gathering";
 import { Button } from "#/components/button";
@@ -45,7 +47,10 @@ export default function OpinionPage() {
 		}
 	};
 
-	// Intro step - special layout
+	const handleComplete = () => {
+		router.replace(`/gathering/${gatheringId}/opinion/pending`);
+	};
+
 	if (step === "intro") {
 		return (
 			<Layout.Root>
@@ -70,13 +75,14 @@ export default function OpinionPage() {
 		);
 	}
 
-	// Survey steps - with FormProvider
 	const renderContent = () => {
 		switch (step) {
 			case "distance":
 				return <DistanceStepContent meetingContext={meetingContext} />;
 			case "dislike":
 				return <DislikeStepContent />;
+			case "preference":
+				return <PreferenceStepContent />;
 			default:
 				return null;
 		}
@@ -88,6 +94,8 @@ export default function OpinionPage() {
 				return <DistanceStepFooter onNext={next} />;
 			case "dislike":
 				return <DislikeStepFooter onNext={next} />;
+			case "preference":
+				return <PreferenceStepFooter onComplete={handleComplete} />;
 			default:
 				return null;
 		}
