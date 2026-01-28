@@ -33,9 +33,9 @@ export interface GetGatheringResponse {
 	/** 모임 날짜 (YYYY-MM-DD) */
 	scheduledDate: string;
 	/** 시간대 */
-	timeSlot: TimeSlot;
+	timeSlot: NonNullable<TimeSlot>;
 	/** 지역 */
-	region: Region;
+	region: NonNullable<Region>;
 	/** 모임 인원수 */
 	peopleCount: number;
 }
