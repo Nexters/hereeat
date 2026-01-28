@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, animate } from "motion/react";
 import { FoodCard } from "./FoodCard";
@@ -33,8 +33,12 @@ export const FoodCategoryCarousel = () => {
 		return containerWidth / 2 - CARD_WIDTH / 2 - index * (CARD_WIDTH + GAP);
 	};
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		x.set(getTargetX(indexRef.current));
+
+		if (containerRef.current) {
+			containerRef.current.style.opacity = "1";
+		}
 
 		const step = async () => {
 			indexRef.current += 1;
@@ -56,10 +60,14 @@ export const FoodCategoryCarousel = () => {
 		);
 
 		return () => clearInterval(interval);
-	}, [x, totalCount]);
+	}, [totalCount]);
 
 	return (
-		<div ref={containerRef} className="ygi:relative ygi:w-full">
+		<div
+			ref={containerRef}
+			className="ygi:relative ygi:w-full"
+			style={{ opacity: 0, transition: "opacity 0.3s ease-out" }}
+		>
 			<div
 				className="ygi:pointer-events-none ygi:absolute ygi:z-10"
 				style={{ top: -36, left: "calc(50% - 122px)" }}
@@ -69,6 +77,7 @@ export const FoodCategoryCarousel = () => {
 					alt=""
 					width={58}
 					height={82}
+					loading="eager"
 				/>
 			</div>
 
@@ -81,6 +90,7 @@ export const FoodCategoryCarousel = () => {
 					alt=""
 					width={96}
 					height={96}
+					loading="eager"
 				/>
 			</div>
 
