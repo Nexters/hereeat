@@ -8,6 +8,7 @@ import type { CreateGatheringRequest } from "./type";
 export const gatheringOptions = {
 	create: () => ({
 		mutationKey: gatheringKeys.create(),
-		mutationFn: (request: CreateGatheringRequest) => createGathering(request),
+		mutationFn: (request: CreateGatheringRequest) =>
+			createGathering(request),
 	}),
 };
