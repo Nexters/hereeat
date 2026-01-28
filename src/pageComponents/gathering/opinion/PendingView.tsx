@@ -31,7 +31,7 @@ export const PendingView = () => {
 					</StepHeader.Description>
 				</StepHeader.Root>
 
-				<div className="ygi:item-center ygi:mb-43 ygi:flex ygi:w-full ygi:flex-1 ygi:flex-col ygi:justify-center">
+				<div className="ygi:item-center ygi:mb-43 ygi:flex ygi:w-full ygi:flex-1 ygi:flex-col ygi:justify-end">
 					<Player
 						autoplay
 						loop
