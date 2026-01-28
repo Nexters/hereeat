@@ -47,7 +47,7 @@ export const StepTransition = ({
 					x: { type: "tween", duration: 0.3, ease: "easeOut" },
 					opacity: { duration: 0.2 },
 				}}
-				className="ygi:h-full ygi:w-full ygi:overflow-x-hidden"
+				className="ygi:scrollbar-hide ygi:h-full ygi:w-full ygi:overflow-x-hidden"
 			>
 				{children}
 			</motion.div>
