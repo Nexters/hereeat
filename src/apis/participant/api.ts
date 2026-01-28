@@ -1,6 +1,9 @@
 import { apiClient } from "#/utils/api";
 
-import type { CreateParticipantRequest, CreateParticipantResponse } from "./type";
+import type {
+	CreateParticipantRequest,
+	CreateParticipantResponse,
+} from "./type";
 
 /**
  * 모임 참여 API
