@@ -32,7 +32,9 @@ export default function GatheringCreatePage() {
 		<FormProvider {...form}>
 			<Layout.Root>
 				<Layout.Header>
-					<BackwardButton onClick={handleBackward} />
+					{step !== "people" && (
+						<BackwardButton onClick={handleBackward} />
+					)}
 				</Layout.Header>
 
 				<Layout.Content>
