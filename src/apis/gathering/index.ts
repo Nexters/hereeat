@@ -1,9 +1,14 @@
 // Types
-export type { CreateGatheringRequest, CreateGatheringResponse } from "./type";
+export type {
+	CreateGatheringRequest,
+	CreateGatheringResponse,
+	GetGatheringResponse,
+} from "./type";
 
-// API
-export { createGathering } from "./api";
-
-// Query Factory
+// Query Key & Option
 export { gatheringKeys } from "./queryKey";
 export { gatheringOptions } from "./queryOption";
+
+// API
+export { createGathering, getGathering } from "./api";
+
